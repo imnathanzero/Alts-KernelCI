@@ -9,12 +9,15 @@ on:
       kernelname:
           description: 'Kernel name'
           required: true
+          default: 'Alts-Kernel'
       repo:
           description: 'Kernel source link'
           required: true
+          default: 'https://github.com/MI8953-Project/android_kernel_xiaomi_ysl'
       branch:
           description: 'Kernel source branch'
           required: true
+          default: 'dts/audio'
       clangname:
           description: 'Clang name'
           required: true
