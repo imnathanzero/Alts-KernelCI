@@ -48,9 +48,18 @@ compile() {
         exit 1
     fi
 
-    wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/AnyKernel.sh
-    bash AnyKernel.sh
-    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
+    git clone --depth=1 https://github.com/ALprjkt/Anykernel3 AnyKernel -b ysl 
+    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
+}
+
+# Zipping
+zipping() {
+    cd AnyKernel || exit 1
+    zip -Alts kernel-testing-$DEVICENAME-"${DATE}".zip ./*
+    cd ..
 }
 
 compile
+zipping
+END=$(date +"%s")
+DIFF=$((END - START))
