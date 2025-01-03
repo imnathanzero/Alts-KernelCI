@@ -2,6 +2,17 @@ name: "Build kernels"
 
 on:
   workflow_dispatch:
+    inputs:
+      repo:
+          description: 'Kernel source link'
+          required: true
+      branch:
+          description: 'Kernel source branch'
+          required: true
+      defconfig:
+          description: 'defconfig target'
+          required: true
+          
 
 jobs:
   build:
@@ -13,3 +24,8 @@ jobs:
           wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Dependency.sh
           bash Dependency.sh
 
+      - name: Build Kernel
+        run: |
+          wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Build.sh
+          bash Build.sh
+          
