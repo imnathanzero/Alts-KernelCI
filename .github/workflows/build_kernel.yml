@@ -15,6 +15,18 @@ on:
       branch:
           description: 'Kernel source branch'
           required: true
+      clangname:
+          description: 'Clang name'
+          required: true
+          default: 'proton-clang'
+      clangrepo:
+          description: 'Clang source link'
+          required: true
+          default: 'https://github.com/kdrag0n/proton-clang'
+      clangbranch:
+          description: 'Clang source branch'
+          required: true
+          default: 'master'
 
 env:
   TZ: Asia/Jakarta
@@ -22,6 +34,9 @@ env:
   KERNELNAME: ${{ github.event.inputs.kernelname }}
   REPO: ${{ github.event.inputs.repo }}
   BRANCH: ${{ github.event.inputs.branch }}
+  CLANGNAME: ${{ github.event.inputs.clangname }}
+  CLANGREPO: ${{ github.event.inputs.clangrepo }}
+  CLANGBRANCH: ${{ github.event.inputs.clangbranch }}
           
 
 jobs:
