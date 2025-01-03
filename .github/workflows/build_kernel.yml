@@ -38,6 +38,18 @@ on:
           description: 'Clang source branch'
           required: true
           default: 'master'
+      anyname:
+          description: 'AnyKernel Name'
+          required: true
+          default: 'AnyKernel3'
+      anyrepo:
+          description: 'AnyKernel source link'
+          required: true
+          default: 'https://github.com/ALprjkt/Anykernel3'
+      anybranch:
+          description: 'AnyKernel source branch'
+          required: true
+          default: 'ysl'
 
 env:
   TZ: Asia/Jakarta
@@ -50,6 +62,9 @@ env:
   CLANGBRANCH: ${{ github.event.inputs.clangbranch }}
   USER: ${{ github.event.inputs.user }}
   HOST: ${{ github.event.inputs.host }}
+  ANY_NAME: ${{ github.event.inputs.anyname }}
+  ANY_REPO: ${{ github.event.inputs.anyrepo }}
+  ANY_BRANCH: ${{ github.event.inputs.anybranch }}
           
 
 jobs:
