@@ -3,9 +3,24 @@ name: "Build kernels"
 on:
   workflow_dispatch:
     inputs:
+      banner:
+          description: 'link preview banner'
+          required: true
+      changelog:
+          description: 'changelog your kernel'
+          required: true
+          default: 'https://github.com/MI8953-Project/android_kernel_xiaomi_ysl/commits/dts/audio/'
+      devicename:
+          description: 'Codename Device'
+          required: true
+          default: 'MI8953'
       defconfig:
           description: 'defconfig target'
           required: true
+      download:
+          description: 'download link like "github release, sf"'
+          required: true
+          default: 'https://t.me/altsanymouse'
       kernelname:
           description: 'Kernel name'
           required: true
@@ -30,7 +45,11 @@ on:
 
 env:
   TZ: Asia/Jakarta
+  PHOTO: ${{ github.event.inputs.banner }}
+  CHANGELOG: ${{ github.event.inputs.changelog }}
   DEFCONFIG: ${{ github.event.inputs.defconfig }}
+  DEVICENAME: ${{ github.event.inputs.devicename }}
+  DOWNLOAD: ${{ github.event.inputs.download }}
   KERNELNAME: ${{ github.event.inputs.kernelname }}
   REPO: ${{ github.event.inputs.repo }}
   BRANCH: ${{ github.event.inputs.branch }}
@@ -66,10 +85,21 @@ jobs:
 
       - name: Upload Telegram 
         run: |
+          wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/post.sh
+          bash post.sh
+
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+
+      - name: Post Update
+        run: |
           wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Upload.sh
           bash Upload.sh
 
         env:
           TOKEN: ${{ secrets.TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
+
+          
           
