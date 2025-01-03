@@ -6,9 +6,9 @@ START=$(date +"%s")
 tgs() {
     MD5=$(md5sum "$1" | cut -d' ' -f1)
     curl -fsSL -X POST -F document=@"$1" https://api.telegram.org/bot"$TOKEN"/sendDocument \
-        -F "chat_id="$CHAT_ID" \
-        -F "parse_mode=Markdown" \
-        -F "caption=$2 | *MD5*: \`$MD5\`"
+        -F chat_id="$CHAT_ID" \
+        -F parse_mode=Markdown \
+        -F caption=$2 | *MD5*: \`$MD5\`
 }
 
 # Push kernel to channel
