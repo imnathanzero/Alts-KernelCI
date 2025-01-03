@@ -65,7 +65,7 @@ jobs:
           bash Dependency.sh
 
         env:
-          GIT_USERNAME: ${{ secrets.GIT_USERNANE }}
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
           GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
 
       - name: Build Kernel
