@@ -48,8 +48,8 @@ compile() {
         exit 1
     fi
 
-    git clone --depth=1 $ANY_REPO -b $ANY_BRANCH $ANY_NAME
-    cp out/arch/arm64/boot/Image.gz-dtb $ANY_NAME
+    
+    cp out/arch/arm64/boot/Image.gz-dtb 
 }
 
 compile
