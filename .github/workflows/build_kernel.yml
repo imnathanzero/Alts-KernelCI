@@ -78,6 +78,10 @@ jobs:
           wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Build.sh
           bash Build.sh
 
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+
       - name: Post Update
         run: |
           wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/post.sh
