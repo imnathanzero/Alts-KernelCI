@@ -63,4 +63,13 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Zipping.sh
           bash Zipping.sh
+
+      - name: Upload Telegram 
+        run: |
+          wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Upload.sh
+          bash Upload.sh
+
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
           
