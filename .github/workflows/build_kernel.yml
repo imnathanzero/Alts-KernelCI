@@ -13,11 +13,11 @@ on:
       user:
           description: 'Build User Name'
           required: true
-          default: 'https://github.com/MI8953-Project/android_kernel_xiaomi_ysl'
+          default: 'RenzAlt'
       host:
           description: 'Build Host Name'
           required: true
-          default: 'dts/audio'
+          default: 'Alts-Project'
       repo:
           description: 'Kernel source link'
           required: true
