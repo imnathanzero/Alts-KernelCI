@@ -78,11 +78,6 @@ jobs:
           wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Build.sh
           bash Build.sh
 
-      - name: Zipping Kernel 
-        run: |
-          wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Zipping.sh
-          bash Zipping.sh
-
       - name: Upload Telegram 
         run: |
           wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/post.sh
