@@ -50,7 +50,7 @@ compile() {
 
     wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/AnyKernel.sh
     bash AnyKernel.sh
-    cp out/arch/arm64/boot/Image.gz-dtb Anykernel3
+    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
 }
 
 compile
