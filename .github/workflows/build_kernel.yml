@@ -3,15 +3,25 @@ name: "Build kernels"
 on:
   workflow_dispatch:
     inputs:
+      defconfig:
+          description: 'defconfig target'
+          required: true
+      kernelname:
+          description: 'Kernel name'
+          required: true
       repo:
           description: 'Kernel source link'
           required: true
       branch:
           description: 'Kernel source branch'
           required: true
-      defconfig:
-          description: 'defconfig target'
-          required: true
+
+env:
+  TZ: Asia/Jakarta
+  DEFCONFIG: ${{ github.event.inputs.defconfig }}
+  KERNELNAME: ${{ github.event.inputs.kernelname }}
+  REPO: ${{ github.event.inputs.repo }}
+  BRANCH: ${{ github.event.inputs.branch }}
           
 
 jobs:
