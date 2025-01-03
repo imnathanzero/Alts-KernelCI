@@ -10,14 +10,6 @@ on:
           description: 'Kernel name'
           required: true
           default: 'Alts-Kernel'
-      user:
-          description: 'Build User Name'
-          required: true
-          default: 'RenzAlt'
-      host:
-          description: 'Build Host Name'
-          required: true
-          default: 'Alts-Project'
       repo:
           description: 'Kernel source link'
           required: true
@@ -26,10 +18,6 @@ on:
           description: 'Kernel source branch'
           required: true
           default: 'dts/audio'
-      clangname:
-          description: 'Clang name'
-          required: true
-          default: 'proton-clang'
       clangrepo:
           description: 'Clang source link'
           required: true
@@ -46,11 +34,8 @@ env:
   KERNELNAME: ${{ github.event.inputs.kernelname }}
   REPO: ${{ github.event.inputs.repo }}
   BRANCH: ${{ github.event.inputs.branch }}
-  CLANGNAME: ${{ github.event.inputs.clangname }}
   CLANGREPO: ${{ github.event.inputs.clangrepo }}
   CLANGBRANCH: ${{ github.event.inputs.clangbranch }}
-  USER: ${{ github.event.inputs.user }}
-  HOST: ${{ github.event.inputs.host }}
           
 
 jobs:
