@@ -10,6 +10,14 @@ on:
           description: 'Kernel name'
           required: true
           default: 'Alts-Kernel'
+      user:
+          description: 'Build User Name'
+          required: true
+          default: 'https://github.com/MI8953-Project/android_kernel_xiaomi_ysl'
+      host:
+          description: 'Build Host Name'
+          required: true
+          default: 'dts/audio'
       repo:
           description: 'Kernel source link'
           required: true
@@ -40,6 +48,8 @@ env:
   CLANGNAME: ${{ github.event.inputs.clangname }}
   CLANGREPO: ${{ github.event.inputs.clangrepo }}
   CLANGBRANCH: ${{ github.event.inputs.clangbranch }}
+  USER: ${{ github.event.inputs.user }}
+  HOST: ${{ github.event.inputs.host }}
           
 
 jobs:
@@ -47,10 +57,16 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - name: Install Dependency
+      - name: Install Environment 
         run: |
+          git config --global user.name "$GIT_USERNAME"
+          git config --global user.email "$GIT_USER_EMAIL"
           wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Dependency.sh
           bash Dependency.sh
+
+        env:
+          GIT_USERNAME: ${{ secrets.GIT_USERNANE }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
 
       - name: Build Kernel
         run: |
