@@ -48,8 +48,9 @@ compile() {
         exit 1
     fi
 
-    
-    cp out/arch/arm64/boot/Image.gz-dtb 
+    wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/AnyKernel.sh
+    bash AnyKernel.sh
+    cp out/arch/arm64/boot/Image.gz-dtb Anykernel3
 }
 
 compile
