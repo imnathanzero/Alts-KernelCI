@@ -55,16 +55,15 @@ compile() {
 # Zipping
 zipping() {
     cd AnyKernel || exit 1
-    zip -Alts kernel-testing-"${DEVICENAME}"-"${DATE}".zip ./*
+    zip -Alts kernel-testing-"${DEVICENAME}".zip ./*
     cd ..
 }
 
 tgs() {
-    MD5=$(md5sum "$1" | cut -d' ' -f1)
     curl -fsSL -X POST -F document=@"$1" https://api.telegram.org/bot"$TOKEN"/sendDocument \
         -F chat_id="$CHAT_ID" \
         -F parse_mode=Markdown \
-        -F caption=$2 | *MD5*: \`$MD5\`
+        -F caption=$2
 }
 
 # Push kernel to channel
