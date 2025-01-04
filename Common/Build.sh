@@ -50,20 +50,22 @@ compile() {
 
     git clone --depth=1 https://github.com/ALprjkt/Anykernel3 AnyKernel -b ysl 
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
+
 }
 
 # Zipping
 zipping() {
     cd AnyKernel || exit 1
-    zip -Alts kernel-testing-"${DEVICENAME}".zip ./*
+    zip -r9 Alts-"${BRANCH}"-"${DEVICENAME}"-"${DATE}".zip ./*
     cd ..
 }
 
 tgs() {
+    MD5=$(md5sum "$1" | cut -d' ' -f1)
     curl -fsSL -X POST -F document=@"$1" https://api.telegram.org/bot"$TOKEN"/sendDocument \
         -F chat_id="$CHAT_ID" \
-        -F parse_mode=Markdown \
-        -F caption=$2
+        -F "parse_mode=Markdown" \
+        -F "caption=$2 | *MD5*: \`$MD5\`"
 }
 
 # Push kernel to channel
