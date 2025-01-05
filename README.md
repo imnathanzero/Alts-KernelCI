@@ -74,3 +74,21 @@ Configuration as follows:
 
 ![Secrets](./.assets/img/Secrets.jpg)
 
+# How to use
+
+This project's basic usage is as follows:
+
+1. Fork this project on GitHub.
+
+2. Modify the `Common/build.sh` file and change this on line 51 : `git clone -- depth=1 https://github.com/ALprjkt/Anykernel3 AnyKernel -b ysl` with your own device's anykernel.
+
+3. Go to the `Action` page on Github and find `Build kernels` `Run Workflow` like this :
+
+![Setup](./.assets/img/Setup.jpg)
+
+and adjust it to what your device needs.
+
+Notes: for `link preview banner` You can't just use any image link, you have to use the preview image/raw image link for example: [Here](https://raw.githubusercontent.com/Renzprjkt/Renzprjkt.github.io/refs/heads/main/assets/images/banner/tenshinv3.jpg)
+
+
+
