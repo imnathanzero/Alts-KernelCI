@@ -6,33 +6,35 @@ on:
       banner:
           description: 'link preview banner'
           required: true
+          default: 'https://github.com/imnathanzero/nath/edit/main/20250105_210311.jpg'
       changelog:
           description: 'changelog your kernel'
           required: true
-          default: 'https://github.com/MI8953-Project/android_kernel_xiaomi_ysl/commits/dts/audio/'
+          default: 'https://github.com/imnathanzero/lain_kernel_RMX1941/commits/Q'
       devicename:
           description: 'Codename Device'
           required: true
-          default: 'MI8953'
+          default: 'RMX1941'
       defconfig:
           description: 'defconfig target'
           required: true
+          default: 'lain_defconfig'
       download:
           description: 'download link like "github release, sf"'
           required: true
-          default: 'https://t.me/altsanymouse'
+          default: 'https://t.me/higgaslogege'
       kernelname:
           description: 'Kernel name'
           required: true
-          default: 'Alts-Kernel'
+          default: 'l41n-Kernel'
       repo:
           description: 'Kernel source link'
           required: true
-          default: 'https://github.com/MI8953-Project/android_kernel_xiaomi_ysl'
+          default: 'https://github.com/imnathanzero/lain_kernel_RMX1941'
       branch:
           description: 'Kernel source branch'
           required: true
-          default: 'dts/audio'
+          default: 'Q'
       clangrepo:
           description: 'Clang source link'
           required: true
