@@ -66,13 +66,17 @@ This action contains three jobs: `Setup-Env`, `Build-Kernel`, `Post-Update`.
 
 # Configuration 
 
-Notes: This is for good security and privacy
+Notes: This is for good security and privacy.
 
 You Must Set Up Configuration With Secret Code.
 
 Configuration as follows:
 
-<img src="./.assets/img/Secrets.jpg" width="240" height="540" align="left" />
+<tr>
+  <td>
+    <img src="./.assets/img/Secrets.jpg" width="240" height="540" align="left" />
+  </td>
+</tr>
 
 # How to use
 
