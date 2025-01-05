@@ -33,8 +33,8 @@ This action contains three jobs: `Setup-Env`, `Build-Kernel`, `Post-Update`.
 
 ## Post-Update Feature
 
-<img src="./.assets/img/Post.jpg" width="240" height="540" alt="right" />
-<img src="./.assets/img/Post2.jpg" width="240" height="540" alt="left" />
+<img src="./.assets/img/Post.jpg" width="240" height="540" align="right" />
+<img src="./.assets/img/Post2.jpg" width="240" height="540" align="right" />
 
 ## Trigger
 
