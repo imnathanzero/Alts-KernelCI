@@ -14,8 +14,8 @@ This Github Action helps you build kernels. It reads multiple kernel sources fro
 ---
 
 **[<kbd> <br/>  Configure  <br/> </kbd>](#configuration)**
-**[<kbd> <br/>  Quick Start  <br/> </kbd>](##how-to-use)**
-**[<kbd> <br/>  Local testing  <br/> </kbd>](##local-testing)**
+**[<kbd> <br/>  Quick Start  <br/> </kbd>](#how-to-use)**
+**[<kbd> <br/>  Contributor  <br/> </kbd>](#contributor)**
 
 ---
 
@@ -73,6 +73,12 @@ You Must Set Up Configuration With Secret Code.
 Configuration as follows:
 
 ![Secrets](./.assets/img/Secrets.jpg)
+
+# Post Update Configuration 
+
+Modify the `Common/Post.sh` file and change some there like Release Name ,Notes ,Credits etc
+
+Notes :if you build with this action, please credit the owner of this repo
 
 # How to use
 
