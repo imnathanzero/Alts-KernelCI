@@ -10,7 +10,7 @@ on:
       changelog:
           description: 'changelog your kernel'
           required: true
-          default: 'https://github.com/imnathanzero/lain_kernel_RMX1941/commits/Q'
+          default: 'https://github.com/natehiggasgarage/lain_kernel_RMX1941/commits/Q'
       devicename:
           description: 'Codename Device'
           required: true
@@ -30,7 +30,7 @@ on:
       repo:
           description: 'Kernel source link'
           required: true
-          default: 'https://github.com/imnathanzero/lain_kernel_RMX1941'
+          default: 'https://github.com/natehiggasgarage/lain_kernel_RMX1941'
       branch:
           description: 'Kernel source branch'
           required: true
