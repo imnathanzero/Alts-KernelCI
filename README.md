@@ -47,3 +47,20 @@ This action contains three jobs: `Setup-Env`, `Build-Kernel`, `Post-Update`.
 | Event name        | Description  |
 | ----------------- | ------------ |
 | workflow_dispatch | Manually run |
+
+## Workflow
+
+| Step                    | Description                                                                |
+| ----------------------- | -------------------------------------------------------------------------- |
+| Install prerequisites   | Install the necessary dependencies for building the kernel                 |
+| Setup Anykernel3        | Clone the Anykernel3 repository to prepare for packaging the kernel        |
+| Clone kernel source     | Clone the kernel source code repository for the Android device             |
+| Get toolchains          | Obtain the required cross-compilation toolchains for building the kernel   |
+| Make defconfig          | Generate the kernel configuration file                                     |
+| Build kernel            | Compile the kernel source code to create the kernel image                  |
+| Upload Image.gz         | Upload the compressed kernel image file to a designated location           |
+| Upload dtb              | Upload the device tree blob file to a designated location                  |
+| Pack AnyKernel3.zip     | Package the kernel image and device tree files into an Anykernel3 zip file |
+| Upload AnyKernel3 image | Upload the Anykernel3 zip file to a designated location                    |
+| Post Update Channel     | Auto Post Release On Channel With Banners & Description                    |
+
