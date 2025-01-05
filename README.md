@@ -25,11 +25,11 @@ This Github Action helps you build kernels. It reads multiple kernel sources fro
 
 This action contains three jobs: `Setup-Env`, `Build-Kernel`, `Post-Update`.
 
-the `Setup-Env` stage is the Dependency Installation stage.
+`Setup-Env` stage is the Dependency Installation stage.
 
-The `Build-Kernel` stage is the stage of building the kernel and packaging the kernel with AnyKernel and uploading it to the destination group like 'Telegram'/other download mirrors (The Upload stage only supports uploading to Telegram at this time "Upload Mirror in progress").
+`Build-Kernel` stage is the stage of building the kernel and packaging the kernel with AnyKernel and uploading it to the destination group like 'Telegram'/other download mirrors (The Upload stage only supports uploading to Telegram at this time "Upload Mirror in progress").
 
-The `Post-Update` stage is the stage where this will create an auto post update to the destination channel with support (banner, download link, and credit as appreciation).
+`Post-Update` stage is the stage where this will create an auto post update to the destination channel with support (banner, download link, and credit as appreciation).
 
 ## Post-Update Feature
 
