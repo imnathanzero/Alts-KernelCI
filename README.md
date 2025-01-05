@@ -91,4 +91,17 @@ and adjust it to what your device needs.
 Notes: for `link preview banner` You can't just use any image link, you have to use the preview image/raw image link for example: [Here](https://raw.githubusercontent.com/Renzprjkt/Renzprjkt.github.io/refs/heads/main/assets/images/banner/tenshinv3.jpg)
 
 
+# Acknowledgments
 
+- [weishu](https://github.com/tiann) : Developer of KernelSU
+- [Renzprjkt/KernelCI](https://github.com/Renzprjkt/KernelCI) : Based of this project
+- [xiaoleGun/KernelSU_Action](https://github.com/xiaoleGun/KernelSU_Action) ： Drawing on some Github Actions
+- [UtsavBalar1231/Drone-scripts](https://github.com/UtsavBalar1231/Drone-scripts) ： Drawing on some Github Actions
+- [romiyusnandar](https://github.com/romiyusnandar/kernel_build_action) : Drawing on some Github Actions
+- [AL/AnyKernel3](https://github.com/k4ngcaribug/Anykernel3) : Drawing on some Github Actions
+
+# Contributor
+
+<a href="https://github.com/shenprjkt/Alts-KernelCI/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=shenprjkt/Alts-KernelCI" alt="contributors"/>
+</a>
