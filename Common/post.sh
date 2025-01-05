@@ -3,7 +3,7 @@
 # Copyright 2024
 
 tgp() {
-    curl -sX POST https://api.telegram.org/bot"$TOKEN"/sendPhoto -d photo=$PHOTO -d chat_id="$CHAT_ID" -d parse_mode=Markdown -d disable_web_page_preview=true -d text="$1" &>/dev/null -d caption="#AltsProject #MI8953
+    curl -sX POST https://api.telegram.org/bot"$TOKEN"/sendPhoto -d photo=$PHOTO -d chat_id="$CHAT_CH" -d parse_mode=Markdown -d disable_web_page_preview=true -d text="$1" &>/dev/null -d caption="#AltsProject #MI8953
 $KERNELNAME $DEVICENAME || Kernel 4.19
 Author: @RennAlt
 
