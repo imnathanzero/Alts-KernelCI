@@ -14,9 +14,9 @@ START=$(date +"%s")
 KERNEL_DIR=$(pwd)
 ARCH=arm64
 export ARCH
-KBUILD_BUILD_HOST="RenzAlt"
+KBUILD_BUILD_HOST="Nathan"
 export KBUILD_BUILD_HOST
-KBUILD_BUILD_USER="KernelCI"
+KBUILD_BUILD_USER="WasHere"
 export KBUILD_BUILD_USER
 
 # Compile
@@ -26,29 +26,29 @@ compile() {
         rm -rf out && mkdir -p out
     fi
 
-    make O=out ARCH="${ARCH}"
-    make $DEFCONFIG O=out
-    make -j $(nproc --all) O=out \
-        ARCH=$ARCH \
-        CC="clang" \
-        AR="llvm-ar" \
-        NM="llvm-nm" \
-        OBJCOPY="llvm-objcopy" \
-        OBJDUMP="llvm-objdump" \
-        READELF="llvm-readelf" \
-        OBJSIZE="llvm-size" \
-        STRIP="llvm-strip" \
-        LLVM_AR="llvm-ar" \
-        LLVM_DIS="llvm-dis" \
+    make CC=clang ARCH="${ARCH}" O=out $DEFCONFIG
+    make CC=clang LLVM=1 ARCH="${ARCH}" -j $(nproc --all) O=out \
+        HEADER_ARCH="${ARCH}" \
+        SUBARCH="${ARCH}" \
+        CXX=c++ \
+        AR=llvm-ar \
+        NM=llvm-nm \
+        OBJDUMP=llvm-objdump \
+        STRIP=llvm-strip \
+        READELF=llvm-readelf \
+        HOSTCXX=clang++ \
+        HOSTAR=llvm-ar \
+        LLVM_IAS=1 \
         CROSS_COMPILE=aarch64-linux-gnu- \
-        CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+        CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+        CLANG_TRIPLE=aarch64-linux-gnu-
 
     if ! [ -a "$IMAGE" ]; then
         finderr
         exit 1
     fi
 
-    git clone --depth=1 https://github.com/ALprjkt/Anykernel3 AnyKernel -b ysl 
+    git clone --depth=1 https://github.com/Frostleaft07/Anykernel3 AnyKernel -b rmx1941 
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 
 }
