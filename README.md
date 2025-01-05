@@ -64,3 +64,29 @@ This action contains three jobs: `Setup-Env`, `Build-Kernel`, `Post-Update`.
 | Upload AnyKernel3 image | Upload the Anykernel3 zip file to a designated location                    |
 | Post Update Channel     | Auto Post Release On Channel With Banners & Description                    |
 
+# Configuration 
+
+Notes: This is for good security and privacy
+
+You Must Set Up Configuration With Secret Code.
+
+Configuration as follows:
+
+<img src="./.assets/img/Secrets.jpg" width="240" height="540" align="left" />
+
+# How to use
+
+This project's basic usage is as follows:
+
+1. Fork this project on GitHub.
+
+2. Modify the `Common/build.sh` file and change this on line 51 : `git clone -- depth=1 https://github.com/ALprjkt/Anykernel3 AnyKernel -b ysl` with your own device's anykernel.
+
+3. Go to the `Action` page on Github and find `Build kernels` `Run Workflow` like this :
+
+<img src="./.assets/img/Setup.jpg" width="240" height="540" align="left" />
+
+and adjust it to what your device needs.
+
+Notes: for `link preview banner` You can't just use any image link, you have to use the preview image/raw image link for example: [Here](https://raw.githubusercontent.com/Renzprjkt/Renzprjkt.github.io/refs/heads/main/assets/images/banner/tenshinv3.jpg)
+
