@@ -38,7 +38,7 @@ This action contains three jobs: `Setup-Env`, `Build-Kernel`, `Post-Update`.
     <img src="./.assets/img/Post.jpg" width="240" height="540" align="left" />
   </td>
   <td>
-    <img src="./.assets/img/Post2.jpg" width="240" height="540" align="right" />
+    <img src="./.assets/img/Post2.jpg" width="240" height="540" align="center" />
   </td>
 </tr>
 
