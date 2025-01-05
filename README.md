@@ -13,9 +13,9 @@ This Github Action helps you build kernels. It reads multiple kernel sources fro
 
 ---
 
-**[<kbd> <br/>  Configure  <br/> </kbd>](#configuration)**
-**[<kbd> <br/>  Quick Start  <br/> </kbd>](#how-to-use)**
-**[<kbd> <br/>  Local testing  <br/> </kbd>](#local-testing)**
+**[<kbd> <br/>  Configure  <br/> </kbd>](##configuration)**
+**[<kbd> <br/>  Quick Start  <br/> </kbd>](##how-to-use)**
+**[<kbd> <br/>  Local testing  <br/> </kbd>](##local-testing)**
 
 ---
 
@@ -64,7 +64,7 @@ This action contains three jobs: `Setup-Env`, `Build-Kernel`, `Post-Update`.
 | Upload AnyKernel3 image | Upload the Anykernel3 zip file to a designated location                    |
 | Post Update Channel     | Auto Post Release On Channel With Banners & Description                    |
 
-# Configuration 
+## Configuration 
 
 Notes: This is for good security and privacy.
 
@@ -78,7 +78,7 @@ Configuration as follows:
   </td>
 </tr>
 
-# How to use
+## How to use
 
 This project's basic usage is as follows:
 
