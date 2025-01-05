@@ -104,6 +104,6 @@ Notes: for `link preview banner` You can't just use any image link, you have to 
 
 <a href="https://github.com/shenprjkt/Alts-KernelCI/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=shenprjkt/shenprjkt" alt="contributors"/>
-  <img src="https://contrib.rocks/image?repo=k4ngcaribug/k4ngcaribug" alt="contributors"/>
+  <img src="https://contrib.rocks/image?repo=k4ngcaribug/AnyKernel3" alt="contributors"/>
   <img src="https://contrib.rocks/image?repo=romiyusnandar/romiyusnandar" alt="contributors"/>
 </a>
