@@ -6,6 +6,7 @@ on:
       banner:
           description: 'link preview banner'
           required: true
+          default: 'https://raw.githubusercontent.com/shenprjkt/project-banner/refs/heads/android-12.1/Alts-Mi8953-Banner.jpg'
       changelog:
           description: 'changelog your kernel'
           required: true
