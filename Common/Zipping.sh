@@ -6,7 +6,7 @@ START=$(date +"%s")
 # Zipping
 zipping() {
     cd AnyKernel3 || exit 1
-    zip -Alts kernel-testing-$KERNELNAME-"${DATE}".zip ./*
+    zip -seekkss kernel-testing-$KERNELNAME-"${DATE}".zip ./*
     cd ..
 }
 
