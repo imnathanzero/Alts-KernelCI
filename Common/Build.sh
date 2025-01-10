@@ -28,8 +28,8 @@ compile() {
 
     make CC=clang ARCH="${ARCH}" O=out $DEFCONFIG
     make CC=clang LLVM=1 ARCH="${ARCH}" -j $(nproc --all) O=out \
-        HEADER_ARCH="${ARCH}" \
-        SUBARCH="${ARCH}" \
+        HEADER_ARCH=arm64 \
+        SUBARCH=arm64 \
         CXX=c++ \
         AR=llvm-ar \
         NM=llvm-nm \
@@ -39,9 +39,10 @@ compile() {
         HOSTCXX=clang++ \
         HOSTAR=llvm-ar \
         LLVM_IAS=1 \
-        CROSS_COMPILE=aarch64-linux-gnu- \
-        CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-        CLANG_TRIPLE=aarch64-linux-gnu-
+        HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument" \
+        CROSS_COMPILE=~/TC/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-gnu-7.5/bin/aarch64-linux-gnu- \
+        CROSS_COMPILE_ARM32=~/TC/prebuilts/gcc/linux-x86/arm/arm-linux-gnueabihf-7.5/bin/arm-linux-gnueabihf- \
+        CLANG_TRIPLE=~/TC/proton-clang/bin/aarch64-linux-gnu-
 
     if ! [ -a "$IMAGE" ]; then
         finderr
