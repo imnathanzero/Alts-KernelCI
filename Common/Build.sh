@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+mkdir mkdir -p output
 
 # Clone Kernel
 git clone --recursive --depth=1 -j $(nproc) $REPO -b $BRANCH $KERNELNAME
