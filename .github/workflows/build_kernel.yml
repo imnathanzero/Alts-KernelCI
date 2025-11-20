@@ -74,8 +74,7 @@ jobs:
           sudo apt-get install -y zip unzip tar gzip bzip2 rar unrar cpio
           git clone https://github.com/nathanzerogarage/android-prebuilts-gcc-linux-x86-arm-arm-eabi-7.2.git prebuilts/gcc/linux-x86/arm/arm-eabi-7.2
           export CROSS_COMPILE=$(pwd)/prebuilts/gcc/linux-x86/arm/arm-eabi-7.2/bin/arm-eabi-
-          
-          
+          curl -s https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/Build.sh | bash
 
         env:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
@@ -83,6 +82,7 @@ jobs:
 
       - name: Build Kernel
         run: |
+          cd zeroksu-Kernel
           mkdir output
           make -C $(pwd) O=output VARIANT_DEFCONFIG=msm8916_sec_j5lte_eur_defconfig SELINUX_DEFCONFIG=selinux_defconfig
           make -C $(pwd) O=output
