@@ -68,8 +68,14 @@ jobs:
         run: |
           git config --global user.name "$GIT_USERNAME"
           git config --global user.email "$GIT_USER_EMAIL"
-          wget https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/Dependency.sh
-          bash Dependency.sh
+          sudo apt-get update
+          sudo apt-get install -y build-essential clang bc bison libssl-dev libfl-dev libncurses5-dev libzstd-dev libtinfo5
+          sudo apt-get install -y curl git ftp lftp wget libarchive-tools ccache python2 python2-dev python3
+          sudo apt-get install -y zip unzip tar gzip bzip2 rar unrar cpio
+          git clone https://github.com/nathanzerogarage/android-prebuilts-gcc-linux-x86-arm-arm-eabi-7.2.git prebuilts/gcc/linux-x86/arm/arm-eabi-7.2
+          export CROSS_COMPILE=$(pwd)/prebuilts/gcc/linux-x86/arm/arm-eabi-7.2/bin/arm-eabi-
+          
+          
 
         env:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
@@ -77,16 +83,18 @@ jobs:
 
       - name: Build Kernel
         run: |
-          wget https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/Build.sh
-          bash Build.sh
+          mkdir output
+          make -C $(pwd) O=output VARIANT_DEFCONFIG=msm8916_sec_j5lte_eur_defconfig SELINUX_DEFCONFIG=selinux_defconfig
+          make -C $(pwd) O=output
 
         env:
           TOKEN: ${{ secrets.TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
 
-      - name: Post Update
+      - name: zip and post Update
         run: |
-          wget https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/post.sh
+          curl -s https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/Zipping.sh | bash
+          curl -s https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/post.sh | bash
           bash post.sh
 
         env:
