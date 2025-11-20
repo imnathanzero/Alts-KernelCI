@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-mkdir mkdir -p output
+mkdir mkdir -p $(pwd)/output
 
 # Clone Kernel
 git clone --recursive --depth=1 -j $(nproc) $REPO -b $BRANCH $KERNELNAME
@@ -28,7 +28,7 @@ export CROSS_COMPILE=$(pwd)/prebuilts/gcc/linux-x86/arm/arm-eabi-7.2/bin/arm-eab
 compile() {
 
     if [ -d "out" ]; then
-        rm -rf output && mkdir -p output
+        rm -rf $(pwd)/output && mkdir -p $(pwd)/output
     fi
 
     make -C $(pwd) O=output \
@@ -42,7 +42,7 @@ compile() {
     fi
 
     git clone --depth=1 https://github.com/imnathanzero/AnyKernel3.git AnyKernel -b j5
-    cp output/arch/arm/boot/Image AnyKernel/zImage
+    cp $(pwd)/output/arch/arm/boot/Image AnyKernel/zImage
 
 }
 
