@@ -3,59 +3,45 @@
 # Clone Kernel
 git clone --recursive --depth=1 -j $(nproc) $REPO -b $BRANCH $KERNELNAME
 
-# Clone DTS
-git clone --recursive --depth=1 -j $(nproc) https://github.com/Mi-Eldarion/kernel_devicetree-ysl-4.19 -b main $KERNELNAME/arch/arm64/boot/dts/vendor/qcom/ysl
-
-# Clone Techpack Mi8953
-git clone --recursive --depth=1 -j $(nproc) https://github.com/Alts-Project/kernel_techpack_ysl -b new-fts $KERNELNAME/techpack/mi8953
+# Clone Toolchain
+git clone --recursive --depth=1 -j $(nproc) https://github.com/nathanzerogarage/android-prebuilts-gcc-linux-x86-arm-arm-eabi-7.2.git prebuilts/gcc/linux-x86/arm/arm-eabi-7.2
 cd $KERNELNAME
 
 # Clone Clang
 git clone --recursive --depth=1 -j $(nproc) $CLANGREPO -b $CLANGBRANCH clang
 PATH="${PWD}/clang/bin:${PATH}"
 
-IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
+IMAGE=$(pwd)/output/arch/arm/boot/Image
 DATE=$(date +"%Y%m%d-%H%M")
 START=$(date +"%s")
 KERNEL_DIR=$(pwd)
-ARCH=arm64
+ARCH=arm
 export ARCH
-KBUILD_BUILD_HOST="RenzAlt"
+KBUILD_BUILD_HOST="nathan"
 export KBUILD_BUILD_HOST
-KBUILD_BUILD_USER="KernelCI"
+KBUILD_BUILD_USER="openthe3xit"
 export KBUILD_BUILD_USER
+export CROSS_COMPILE=$(pwd)/prebuilts/gcc/linux-x86/arm/arm-eabi-7.2/bin/arm-eabi-
 
 # Compile
 compile() {
 
     if [ -d "out" ]; then
-        rm -rf out && mkdir -p out
+        rm -rf output && mkdir -p output
     fi
 
-    make O=out ARCH="${ARCH}"
-    make $DEFCONFIG O=out
-    make -j $(nproc --all) O=out \
-        ARCH=$ARCH \
-        CC="clang" \
-        AR="llvm-ar" \
-        NM="llvm-nm" \
-        OBJCOPY="llvm-objcopy" \
-        OBJDUMP="llvm-objdump" \
-        READELF="llvm-readelf" \
-        OBJSIZE="llvm-size" \
-        STRIP="llvm-strip" \
-        LLVM_AR="llvm-ar" \
-        LLVM_DIS="llvm-dis" \
-        CROSS_COMPILE=aarch64-linux-gnu- \
-        CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+    make -C $(pwd) O=output \
+    VARIANT_DEFCONFIG=msm8916_sec_j5lte_eur_defconfig \
+    SELINUX_DEFCONFIG=selinux_defconfig
+    make -C $(pwd) O=output
 
     if ! [ -a "$IMAGE" ]; then
         finderr
         exit 1
     fi
 
-    git clone --depth=1 https://github.com/ALprjkt/Anykernel3 AnyKernel -b ysl 
-    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
+    git clone --depth=1 https://github.com/imnathanzero/AnyKernel3.git AnyKernel -b j5
+    cp output/arch/arm/boot/Image AnyKernel/zImage
 
 }
 

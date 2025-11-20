@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # Clone AnyKernel 
-git clone --recursive --depth=1 -j $(nproc) https://github.com/ALprjkt/Anykernel3 -b ysl AnyKernel3
+git clone https://github.com/imnathanzero/AnyKernel3.git -b j5 AnyKernel3

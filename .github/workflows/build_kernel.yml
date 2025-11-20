@@ -10,30 +10,31 @@ on:
       changelog:
           description: 'changelog your kernel'
           required: true
-          default: 'https://github.com/MI8953-Project/android_kernel_xiaomi_ysl/commits/dts/audio/'
+          default: 'https://github.com/nathanzerogarage/android_kernel_samsung_msm8916/commits/lineage-17.1-ksu/'
       devicename:
           description: 'Codename Device'
           required: true
-          default: 'MI8953'
+          default: 'j5ltedx'
       defconfig:
           description: 'defconfig target'
           required: true
+          default: 'msm8916_sec_j5lte_eur_defconfig'
       download:
           description: 'download link like "github release, sf"'
           required: true
-          default: 'https://t.me/altsanymouse'
+          default: 'https://t.me/nathanzero00'
       kernelname:
           description: 'Kernel name'
           required: true
-          default: 'Alts-Kernel'
+          default: 'zeroksu-Kernel'
       repo:
           description: 'Kernel source link'
           required: true
-          default: 'https://github.com/MI8953-Project/android_kernel_xiaomi_ysl'
+          default: 'https://github.com/nathanzerogarage/android_kernel_samsung_msm8916'
       branch:
           description: 'Kernel source branch'
           required: true
-          default: 'dts/audio'
+          default: 'lineage-17.1-ksu'
       clangrepo:
           description: 'Clang source link'
           required: true
@@ -67,7 +68,7 @@ jobs:
         run: |
           git config --global user.name "$GIT_USERNAME"
           git config --global user.email "$GIT_USER_EMAIL"
-          wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Dependency.sh
+          wget https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/Dependency.sh
           bash Dependency.sh
 
         env:
@@ -76,7 +77,7 @@ jobs:
 
       - name: Build Kernel
         run: |
-          wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/Build.sh
+          wget https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/Build.sh
           bash Build.sh
 
         env:
@@ -85,7 +86,7 @@ jobs:
 
       - name: Post Update
         run: |
-          wget https://raw.githubusercontent.com/shenprjkt/Alts-KernelCI/main/Common/post.sh
+          wget https://raw.githubusercontent.com/imnathanzero/Alts-KernelCI/main/Common/post.sh
           bash post.sh
 
         env:
